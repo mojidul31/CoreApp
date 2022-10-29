@@ -8,6 +8,7 @@ namespace CoreApp.com.test
 {
     public class ProblemAndSolutionOne
     {
+		//How to remove unwanted space from a string
 		public static string RemoveSpaceFromStr(string str)
 		{
 			StringBuilder sb = new StringBuilder();
