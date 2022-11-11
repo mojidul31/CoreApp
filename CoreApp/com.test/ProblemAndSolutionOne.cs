@@ -36,9 +36,34 @@ namespace CoreApp.com.test
 			return nums.Distinct().Count();
 		}
 
-		public static int[] RemoveDuplicates2(int[] nums)
+		public static int RemoveDuplicates2(int[] nums)
 		{
-			return nums.Distinct().ToArray();
+			int currentNum = nums[0];
+			List<int> result = new List<int>();
+			result.Add(currentNum);
+			bool isFound = false;
+			
+			//return nums.Distinct().ToArray();
+			for (int i = 1; i < nums.Length; i++)
+            {
+				if(currentNum == nums[i] && !isFound)
+                {
+					isFound = true;
+                }
+                else if(currentNum != nums[i])
+				{
+					result.Add(nums[i]);					
+					currentNum = nums[i];
+					isFound = false;
+                }
+            }
+            int[] res = new int[result.Count];
+			res = result.ToArray();
+			//show new array
+			//Console.WriteLine(String.Join(",", res));
+			//show count
+			//Console.WriteLine("ssd " + res.Length);
+			return res.Length;
 		}
 
 		//How to combine two arrays without duplicate values in C#?
