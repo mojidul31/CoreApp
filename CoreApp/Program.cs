@@ -6,6 +6,7 @@ Console.WriteLine("Hello, World!");
 var str = " Hello   Mojidul   Islam      ";
 Console.WriteLine(ProblemAndSolutionOne.RemoveSpaceFromStr(str));
 //remove duplicate value from an int array
+//https://leetcode.com/problems/remove-duplicates-from-sorted-array/
 int[] nums = { 1, 1, 2 };
 Console.WriteLine(ProblemAndSolutionOne.RemoveDuplicates(nums));
 var withoutDuplicateValues = ProblemAndSolutionOne.RemoveDuplicates2(nums);
