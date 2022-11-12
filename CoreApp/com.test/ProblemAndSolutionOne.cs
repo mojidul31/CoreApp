@@ -71,6 +71,55 @@ namespace CoreApp.com.test
         {
 			return arr1.Union(arr2).ToArray();
 		}
+
+		//How to get second max value from an int array
+
+		public static int getSecondMaxValue(int[] arr)
+        {
+			int maxNo = 0;
+			int secondMaxNo = 0;
+			//for(int i = 0; i < arr.Length; i++)
+			// {
+			//	if(arr[i] > maxNo)
+			// {
+			//		secondMaxNo = maxNo;
+			//		maxNo = arr[i];
+			//	}
+			//	else if (arr[i] > secondMaxNo)
+			//	{
+			//		secondMaxNo = arr[i];
+			//	}
+			//}
+			foreach(int i in arr)
+            {
+				if (i > maxNo)
+				{
+					secondMaxNo = maxNo;
+					maxNo = i;
+				}
+				else if (i > secondMaxNo)
+				{
+					secondMaxNo = i;
+				}
+			}
+			return secondMaxNo;
+        }
+
+		// How to get reverse order strig
+		public static string getReverseOrderString(string str)
+        {
+			StringBuilder sb = new StringBuilder();
+            if (!string.IsNullOrEmpty(str))
+            {
+				for(int i = str.Length-1; i >= 0; i--)
+                {
+					sb.Append(str[i]);
+
+				}
+				return sb.ToString();
+            }
+			return string.Empty;
+        }
 		
 
 	}

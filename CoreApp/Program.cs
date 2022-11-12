@@ -23,5 +23,13 @@ Console.WriteLine("[{0}]",string.Join(',',combineArray));
 int[] nums1 = { 1, 2, 3, 4 };
 //Console.WriteLine("[{0}]", string.Join(',', nums1));
 Console.WriteLine("{0}", string.Join(',', nums1));
+//How to get second max value from an int array
+int [] nums2 = { 1, -20, -13, 40 ,20,25};
+Console.WriteLine("Second Largest No. {0}", ProblemAndSolutionOne.getSecondMaxValue(nums2));
+// How to get reverse order strig
+string name = "Mojidul Islam";
+Console.WriteLine("String reverse order= {0}", ProblemAndSolutionOne.getReverseOrderString(name));
+
+
 
 
