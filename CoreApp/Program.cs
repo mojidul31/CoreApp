@@ -9,11 +9,11 @@ Console.WriteLine(ProblemAndSolutionOne.RemoveSpaceFromStr(str));
 //https://leetcode.com/problems/remove-duplicates-from-sorted-array/
 //int[] nums = { 1, 1, 2 };
 int[] nums = { 0, 0, 1, 1, 1, 2, 2, 3, 3, 4 };
-Console.WriteLine(ProblemAndSolutionOne.RemoveDuplicates(nums));
+Console.WriteLine("Array is "+ProblemAndSolutionOne.RemoveDuplicates(nums));
 //var withoutDuplicateValues = ProblemAndSolutionOne.RemoveDuplicates2(nums);
 //Array.ForEach(withoutDuplicateValues, x=> Console.WriteLine("[{0}]",',', x));
 //Console.WriteLine("[{0}]", string.Join(',', withoutDuplicateValues));
-Console.WriteLine("Count "+ProblemAndSolutionOne.RemoveDuplicates2(nums));
+Console.WriteLine("Array Count "+ProblemAndSolutionOne.RemoveDuplicates2(nums));
 //How to combine two arrays without duplicate values in C#?
 string[] arr1 = { "Cat", "Alligator", "Fox", "Donkey", "Cat" };
 string[] arr2 = { "Sparrow", "Peacock", "Dove", "Crow" };

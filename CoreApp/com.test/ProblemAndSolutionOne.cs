@@ -38,32 +38,21 @@ namespace CoreApp.com.test
 
 		public static int RemoveDuplicates2(int[] nums)
 		{
-			int currentNum = nums[0];
-			List<int> result = new List<int>();
-			result.Add(currentNum);
-			bool isFound = false;
+			int uniqueIndex = 1;
 			
 			//return nums.Distinct().ToArray();
 			for (int i = 1; i < nums.Length; i++)
             {
-				if(currentNum == nums[i] && !isFound)
+				// We skip to next index if we see a duplicate element
+				if (nums[i-1] != nums[i])
                 {
-					isFound = true;
-                }
-                else if(currentNum != nums[i])
-				{
-					result.Add(nums[i]);					
-					currentNum = nums[i];
-					isFound = false;
-                }
-            }
-            int[] res = new int[result.Count];
-			res = result.ToArray();
-			//show new array
-			//Console.WriteLine(String.Join(",", res));
-			//show count
-			//Console.WriteLine("ssd " + res.Length);
-			return res.Length;
+					/* Storing the unique element at uniqueIndex index and incrementing the uniqueIndex by 1 */
+					nums[uniqueIndex] = nums[i];
+					uniqueIndex++;
+				}
+			}
+			Console.WriteLine("New arr "+String.Join(",", nums));			
+			return uniqueIndex;
 		}
 
 		//How to combine two arrays without duplicate values in C#?
