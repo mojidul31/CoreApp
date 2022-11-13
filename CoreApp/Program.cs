@@ -29,7 +29,14 @@ Console.WriteLine("Second Largest No. {0}", ProblemAndSolutionOne.getSecondMaxVa
 // How to get reverse order strig
 string name = "Mojidul Islam";
 Console.WriteLine("String reverse order= {0}", ProblemAndSolutionOne.getReverseOrderString(name));
-
+// Find the Height of Stack X to the Power N.
+Console.WriteLine("Power result = {0}", ProblemAndSolutionOne.getBaseToThePower(10,5));
+//Reverse Words in a String
+//string str2 = "the sky is blue";
+//string str2 = "  hello world  ";
+//string str2 = "a good   example";
+string str2 = "EPY2giL";
+Console.WriteLine("Reverse String " + ProblemAndSolutionOne.ReverseWords(str2));
 
 
 

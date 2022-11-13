@@ -109,7 +109,57 @@ namespace CoreApp.com.test
             }
 			return string.Empty;
         }
-		
+
+		// Find the Height of Stack X to the Power N.
+		public static int getBaseToThePower(int baseNo, int powerNo)
+        {
+			if (baseNo == 0)
+            {
+				return 0;
+			}				
+			if (powerNo == 0)
+            {
+				return 1;
+			}
+			int bPx = getBaseToThePower(baseNo, powerNo-1);
+			return baseNo * bPx;
+        }
+
+		//Reverse Words in a String
+
+		public static string ReverseWords(string s)
+		{
+			s = s.Trim();
+			string s1 = string.Empty;
+			string s2 = string.Empty;
+			for (int i = s.Length - 1; i >= 0; i--)
+			{
+				if (Char.IsLetter(s[i]) || Char.IsNumber(s[i]))
+                {
+					s1 += s[i];
+					if(i == 0)
+                    {
+						for (int j = s1.Length - 1; j >= 0; j--)
+						{
+							s2 += s1[j];
+						}
+					}
+                }
+                else
+                {
+                    if (!string.IsNullOrEmpty(s1))
+                    {
+						for (int j = s1.Length - 1; j >= 0; j--)
+						{
+							s2 += s1[j];
+						}
+						s2 += ' ';
+						s1 = string.Empty;
+					}					
+				}
+            }
+			return s2;
+		}
 
 	}
 }
