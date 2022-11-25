@@ -183,6 +183,17 @@ namespace CoreApp.com.test
 			}
 			return result;
 		}
-		
+
+		public static string Append(string firstName, string lastName)
+		{
+			return firstName +' '+ lastName;
+		}
+
+		public static void AppendPrint(string firstName, string lastName)
+		{
+			string fullName = firstName + lastName;
+			Console.WriteLine($"{fullName}");
+		}
+
 	}
 }

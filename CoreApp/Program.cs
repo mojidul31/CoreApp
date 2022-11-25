@@ -43,6 +43,21 @@ int target = 9;//two array position sum ..2+7=9
 //return [0,2]
 var dd = ProblemAndSolutionOne.getArrayIndex(numsN, target);
 Console.WriteLine("Array position [{0}]", string.Join(", ", dd));
+//Sealed classes are used to restrict the inheritance feature of object oriented programming.
+//If you try to derive a class from the SealedClass, you will get an error.
+SealedClass sealedClass = new SealedClass();
+int total = sealedClass.Add(4, 5);
+Console.WriteLine("Total = " + total.ToString());
+//example of Func
+Func<string, string, string> func = ProblemAndSolutionOne.Append;
+string fullName = func("Mojidul", "Islam");
+Console.WriteLine(fullName);
+//example of Action
+Action<string, string> funcAction = ProblemAndSolutionOne.AppendPrint;
+funcAction("Mojidul", "Islam");
+
+
+Console.ReadLine();
 
 
 
