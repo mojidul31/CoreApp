@@ -38,5 +38,11 @@ Console.WriteLine("Power result = {0}", ProblemAndSolutionOne.getBaseToThePower(
 string str2 = "EPY2giL";
 Console.WriteLine("Reverse String " + ProblemAndSolutionOne.ReverseWords(str2));
 
+int[] numsN = { 2, 5, 7, 11, 15 };
+int target = 9;//two array position sum ..2+7=9
+//return [0,2]
+var dd = ProblemAndSolutionOne.getArrayIndex(numsN, target);
+Console.WriteLine("Reverse String " + dd);
+
 
 

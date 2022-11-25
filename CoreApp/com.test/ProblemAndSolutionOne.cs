@@ -161,5 +161,28 @@ namespace CoreApp.com.test
 			return s2;
 		}
 
+		public static int[] getArrayIndex(int[] intArr, int targetNo)
+        {
+			int firstNo, secondNo = 0;
+			int tempSum = 0;
+			int[] result = null;
+			for (int i = 0; i < intArr.Length; i++)
+			{
+				firstNo = intArr[i];
+				for (int j = i+1; j < intArr.Length; j++)
+				{
+					secondNo = intArr[j];
+					tempSum = firstNo + secondNo;
+					if (tempSum == targetNo)
+                    {
+						result = new int[2];
+						result[0] = i;
+						result[1] = j;
+					}
+				}
+			}
+			return result;
+		}
+		
 	}
 }
