@@ -42,7 +42,7 @@ int[] numsN = { 2, 5, 7, 11, 15 };
 int target = 9;//two array position sum ..2+7=9
 //return [0,2]
 var dd = ProblemAndSolutionOne.getArrayIndex(numsN, target);
-Console.WriteLine("Reverse String " + dd);
+Console.WriteLine("Array position [{0}]", string.Join(", ", dd));
 
 
 
