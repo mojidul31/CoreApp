@@ -55,6 +55,10 @@ Console.WriteLine(fullName);
 //example of Action
 Action<string, string> funcAction = ProblemAndSolutionOne.AppendPrint;
 funcAction("Mojidul", "Islam");
+//How to find 5th largest salary using LINQ
+var highestSalary = ProblemAndSolutionOne.Nthhighestsalary(2);
+Console.WriteLine("Array position [{0}]", string.Join(", ", highestSalary));
+
 
 
 Console.ReadLine();

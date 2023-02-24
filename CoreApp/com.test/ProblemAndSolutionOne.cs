@@ -195,5 +195,22 @@ namespace CoreApp.com.test
 			Console.WriteLine($"{fullName}");
 		}
 
-	}
+        //Highest salary Using Method Syntax in LINQ
+        public static double Nthhighestsalary(int NthNumber_Salary)
+        {
+            DataInfo obj = new DataInfo();
+			var empList = obj.GetEmployeeRecord();
+			var ee = empList.OrderByDescending(x=>x.salary).Select(x=>x.salary).Distinct().Take(NthNumber_Salary)
+				.Skip(NthNumber_Salary-1).FirstOrDefault();
+            Console.WriteLine("3rd Highest Salary is: " + ee);
+			return ee;
+        }
+
+        
+
+
+    }
+
+    
+
 }
