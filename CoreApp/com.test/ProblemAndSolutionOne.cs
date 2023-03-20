@@ -206,7 +206,36 @@ namespace CoreApp.com.test
 			return ee;
         }
 
-        
+		//TuplePattern
+		public static string NewTuplePattern(string name, string id, string department)
+		//{
+			//if(name == "Mojidul")
+			//{
+			//	if(id == "101" && department == "CSE")
+			//	{
+			//		return "Md. Mojidul Islam";
+			//	}
+
+			//}else if(name == "Nayeem")
+			//{
+   //             if (id == "102" && department == "VII")
+   //             {
+   //                 return "Md. Nayeem Islam";
+   //             }
+   //         }
+			//return "Invalid Name";
+			
+			//Another way
+			=>(name, id, department) switch {
+				  ("Mojidul","101","CSE") => "Md. Mojidul Islam",
+                  ("Nayeem", "102", "VII") => "Md. Nayeem Islam",
+                  (_,_,_) => "Invalid Name"
+			  };
+
+		//}
+
+
+
 
 
     }

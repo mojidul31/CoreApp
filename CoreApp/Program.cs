@@ -58,7 +58,9 @@ funcAction("Mojidul", "Islam");
 //How to find 5th largest salary using LINQ
 var highestSalary = ProblemAndSolutionOne.Nthhighestsalary(2);
 Console.WriteLine("Array position [{0}]", string.Join(", ", highestSalary));
-
+//Use of Tuple
+var nameUsing = ProblemAndSolutionOne.NewTuplePattern("","102","VII");
+Console.WriteLine("Tuple Use [{0}]", string.Join(", ", nameUsing));
 
 
 Console.ReadLine();
