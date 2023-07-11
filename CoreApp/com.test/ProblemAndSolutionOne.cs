@@ -252,7 +252,19 @@ namespace CoreApp.com.test
             }
         }
 
-
+        public static int SimpleArraySum(List<int> ar)
+        {
+			int sum = 0;
+			if(ar.Any())
+			{
+                sum = ar.Sum();
+				//foreach(int i in ar)
+				//{
+				//	sum += i;
+				//}
+			}
+			return sum;
+        }
 
 
     }

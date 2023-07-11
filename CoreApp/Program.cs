@@ -63,6 +63,11 @@ var nameUsing = ProblemAndSolutionOne.NewTuplePattern("","102","VII");
 Console.WriteLine("Tuple Use [{0}]", string.Join(", ", nameUsing));
 //Use of Predicate delegate
 ProblemAndSolutionOne.PredicateDelegate();
+//Sum of array
+List<int> arr = new List<int>();
+arr.AddRange(new[] { 1, 2, 3, 6, 7, 3, 8 });
+var totalArrayElement = ProblemAndSolutionOne.SimpleArraySum(arr);
+Console.WriteLine("Total Array Element Sum-"+ totalArrayElement.ToString());
 
 Console.ReadLine();
 
