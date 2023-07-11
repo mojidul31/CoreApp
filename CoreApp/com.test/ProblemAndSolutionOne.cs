@@ -218,11 +218,11 @@ namespace CoreApp.com.test
 
 			//}else if(name == "Nayeem")
 			//{
-   //             if (id == "102" && department == "VII")
-   //             {
-   //                 return "Md. Nayeem Islam";
-   //             }
-   //         }
+		 //             if (id == "102" && department == "VII")
+		//             {
+		//                 return "Md. Nayeem Islam";
+		//             }
+		//         }
 			//return "Invalid Name";
 			
 			//Another way
@@ -234,6 +234,23 @@ namespace CoreApp.com.test
 
 		//}
 
+		//predicate delegate
+		public static void PredicateDelegate()
+		{
+            List<int> numbers = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+            // Define the predicate delegate
+            Predicate<int> isEven = x => x % 2 == 0;
+
+            // Use the predicate delegate to filter the list
+            List<int> evenNumbers = numbers.FindAll(isEven);
+
+            // Output the even numbers
+            foreach (int number in evenNumbers)
+            {
+                Console.WriteLine(number);
+            }
+        }
 
 
 

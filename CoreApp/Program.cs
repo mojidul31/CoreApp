@@ -61,7 +61,8 @@ Console.WriteLine("Array position [{0}]", string.Join(", ", highestSalary));
 //Use of Tuple
 var nameUsing = ProblemAndSolutionOne.NewTuplePattern("","102","VII");
 Console.WriteLine("Tuple Use [{0}]", string.Join(", ", nameUsing));
-
+//Use of Predicate delegate
+ProblemAndSolutionOne.PredicateDelegate();
 
 Console.ReadLine();
 
