@@ -1,21 +1,121 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+﻿using System.Text;
 
 namespace CoreApp.com.test
 {
     public class ProblemAndSolutionOne
     {
+        internal static string CommonSubstring(string s1, string s2)
+        {
+
+            char[] chars1 = s1.ToCharArray();
+            char[] chars2 = s2.ToCharArray();
+            foreach (char c in chars1)
+            {
+                if (chars2.Contains(c))
+                    return "YES";
+                    
+            }
+            return "NO";
+        }
+        public static string RearrageablePalindrom(string str)
+		{
+            int[] IntArr = new int[26];
+            for (int i = 0; i < 26; i++)
+            {
+                IntArr[i] = 0;
+            }
+            //IntArr.ToList().ForEach(i => Console.WriteLine(i.ToString()));
+            for (int i = 0; i < str.Length; i++)
+            {
+                IntArr[str[i] - 'a']++;
+            }
+            //IntArr.ToList().ForEach(i => Console.WriteLine("S"+i.ToString()));
+            int sum = 0;
+            for (int i = 0; i < 26; i++)
+            {
+                sum = sum + (IntArr[i] % 2);
+            }
+
+            if (sum >= 2)
+                return "NO";
+            else
+                return "YES";
+        }
+        public static bool checkPalindrome(string str)
+        {
+
+            int n = str.Length;
+
+            // Counting number of characters 
+            // that should be changed.
+            int count = 0;
+
+            for (int i = 0; i < n / 2; ++i)
+
+                if (str[i] != str[n - i - 1])
+                    ++count;
+
+            // If count of changes is less than
+            // or equal to 1
+            return (count <= 1);
+        }
+        public static bool getPalindromStatus(string myString)
+        {
+            string first = myString.Substring(0, myString.Length / 2);
+            char[] arr = myString.ToCharArray();
+
+            Array.Reverse(arr);
+
+            string temp = new string(arr);
+            string second = temp.Substring(0, temp.Length / 2);
+
+            return first.Equals(second);
+        }
+        public static string MakeAnagram(string s)
+        {
+            int len = s.Length;
+            int div = len / 2;
+            string s1 = s.Substring(0, div);
+            int last = len - div;
+            string s2 = s.Substring(div, last);
+            char[] s1Array = s1.ToCharArray();
+            char[] s2Array = s2.ToCharArray();
+			List<char> list = new List<char>();
+
+            Array.Sort(s1Array);
+            Array.Sort(s2Array);
+
+            int i = 0, j = 0;
+
+            // Compare characters in sorted arrays
+            while (i < s1Array.Length && j < s2Array.Length)
+            {
+                if (s1Array[i] == s2Array[j])
+                {
+                    list.Add(s1Array[i]);
+                    i++;
+                    j++;
+					
+                }
+                else if (s1Array[i] < s2Array[j])
+                {
+                    i++;
+                }
+                else
+                {
+                    j++;
+                }
+            }
+			return new string(list.ToArray());
+        }
+
         //Example.
-		/// <summary>
-		/// The only characters that match are the string so we have to remove  from  and  from  for a total of  deletions.
-		/// </summary>
-		/// <param name="s">abc, mbd</param>
-		/// <returns>4</returns>
-		public static int makingAnagrams(string s1, string s2)
+        /// <summary>
+        /// The only characters that match are the string so we have to remove  from  and  from  for a total of  deletions.
+        /// </summary>
+        /// <param name="s">abc, mbd</param>
+        /// <returns>4</returns>
+        public static int makingAnagrams(string s1, string s2)
 		{
 			int delCount = 0;
 			int i=0, j = 0;
@@ -50,7 +150,8 @@ namespace CoreApp.com.test
         }
 
 
-        //An anagram of a string is another string that contains the same characters, only the order of characters can be different. 
+        //An anagram of a string is another string that contains the same characters,
+		//only the order of characters can be different. 
         public static int GetMinimumChangeNoToMakeAnagram(string s)
 		{
 			int count = s.Length;
@@ -401,8 +502,7 @@ namespace CoreApp.com.test
 			}
 			return sum;
         }
-
-
+        
     }
 
     

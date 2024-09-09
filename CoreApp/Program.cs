@@ -1,6 +1,18 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using CoreApp.com.test;
 Console.WriteLine("Hello, World!");
+//common char in two string then yes
+string cs1 = "hi";
+string cs2 = "world";
+Console.WriteLine("Common String =>" + ProblemAndSolutionOne.CommonSubstring(cs1, cs2));
+
+
+//check anagram and
+string strAnaPalin = "aaabbbb";
+Console.WriteLine("check palindrom =>" + ProblemAndSolutionOne.checkPalindrome(strAnaPalin));
+Console.WriteLine("palindrom =>" + ProblemAndSolutionOne.RearrageablePalindrom(strAnaPalin));
+Console.WriteLine("kkds=>" + ProblemAndSolutionOne.MakeAnagram(strAnaPalin));
+
 //delete anagrams
 string s3 = "absdjkvuahdakejfnfauhdsaavasdlkj";
 string s4 = "djfladfhiawasdkjvalskufhafablsdkashlahdfa";
