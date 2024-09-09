@@ -4,6 +4,33 @@ namespace CoreApp.com.test
 {
     public class ProblemAndSolutionOne
     {
+        internal static int AppendWithDollar(string s)
+        {
+            char[] chars1 = s.ToCharArray();
+            char[] newChars = new char[26];
+            int res = 0;
+            int j = 0;
+            for(int i= 0; i < chars1.Length; i++)
+            {
+                if (i == 0)
+                {
+                    newChars[i] = chars1[i];
+                    j++;
+                    res++;
+                }
+                if (i > 0)
+                {
+                    if (!newChars.Contains(chars1[i]))
+                    {
+                        newChars[j] = chars1[i];
+                        res++;
+                        j++;
+                    }
+                }
+            }
+            return res;
+        }
+
         internal static string CommonSubstring(string s1, string s2)
         {
 
@@ -12,8 +39,7 @@ namespace CoreApp.com.test
             foreach (char c in chars1)
             {
                 if (chars2.Contains(c))
-                    return "YES";
-                    
+                    return "YES";                    
             }
             return "NO";
         }
@@ -502,6 +528,7 @@ namespace CoreApp.com.test
 			}
 			return sum;
         }
+
         
     }
 
