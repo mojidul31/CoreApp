@@ -1,7 +1,14 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using CoreApp.com.test;
-
 Console.WriteLine("Hello, World!");
+
+//Palindrom index
+var palindromIndex = ProblemAndSolutionOne.PalindromeIndex("aaa");
+Console.WriteLine(palindromIndex);
+
+//How to revers a string
+var reverseStr = ProblemAndSolutionOne.ReverseString("ABCDEFGH");
+Console.WriteLine(reverseStr);
 
 var str = " Hello   Mojidul   Islam      ";
 Console.WriteLine(ProblemAndSolutionOne.RemoveSpaceFromStr(str));

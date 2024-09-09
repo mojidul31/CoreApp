@@ -8,8 +8,47 @@ namespace CoreApp.com.test
 {
     public class ProblemAndSolutionOne
     {
-		//How to remove unwanted space from a string
-		public static string RemoveSpaceFromStr(string str)
+        //palindrom index test
+
+        public static int PalindromeIndex(string s)
+        {
+            int start = 0;
+            int end = s.Length - 1;
+            while (start < end && s[start] == s[end])
+            {
+                start++;
+                end--;
+            }
+            if (start >= end) return -1; // already a palindrome
+            // We need to delete here
+            if (IsPalindrome(s, start + 1, end)) return start;
+            if (IsPalindrome(s, start, end - 1)) return end;
+            return -1;
+        }
+        public static bool IsPalindrome(string s, int start, int end)
+        {
+            while (start < end && s[start] == s[end])
+            {
+                start++;
+                end--;
+            }
+            return start >= end;
+        }
+        //How to reverse a string
+
+        public static string ReverseString(string s)
+		{
+			return Reverse(s);
+		}
+		private static string Reverse(string s)
+		{
+			char[] chars = s.ToCharArray();
+			Array.Reverse(chars);
+			return new string(chars);
+		}
+
+        //How to remove unwanted space from a string
+        public static string RemoveSpaceFromStr(string str)
 		{
 			StringBuilder sb = new StringBuilder();
 			str = str.Trim();
@@ -30,8 +69,8 @@ namespace CoreApp.com.test
 			return sb.ToString();
 		}
 
-		//How to remove unwanted space from a string
-		public static int RemoveDuplicates(int[] nums)
+        //How to remove duplicate from an int array
+        public static int RemoveDuplicates(int[] nums)
 		{
 			return nums.Distinct().Count();
 		}
