@@ -2,12 +2,109 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace CoreApp.com.test
 {
     public class ProblemAndSolutionOne
     {
+        //Example.
+		/// <summary>
+		/// The only characters that match are the string so we have to remove  from  and  from  for a total of  deletions.
+		/// </summary>
+		/// <param name="s">abc, mbd</param>
+		/// <returns>4</returns>
+		public static int makingAnagrams(string s1, string s2)
+		{
+			int delCount = 0;
+			int i=0, j = 0;
+
+            char[] s1Array = s1.ToCharArray();
+            char[] s2Array = s2.ToCharArray();
+            Array.Sort(s1Array);
+            Array.Sort(s2Array);
+			Console.WriteLine(new string(s1Array));
+			Console.WriteLine(new string(s2Array));
+
+            while (i < s1Array.Length && j < s2Array.Length)
+            {
+                if (s1Array[i] == s2Array[j])
+                {
+                    i++;
+                    j++;
+                }
+                else if (s1Array[i] < s2Array[j])
+                {
+                    i++;
+                    delCount++;
+                }
+                else
+                {
+                    j++;
+                    delCount++;
+                }
+            }
+            delCount += (s1Array.Length - i) + (s2Array.Length - j);            
+			return delCount;
+        }
+
+
+        //An anagram of a string is another string that contains the same characters, only the order of characters can be different. 
+        public static int GetMinimumChangeNoToMakeAnagram(string s)
+		{
+			int count = s.Length;
+			if (count % 2 == 0)
+			{
+                int len = s.Length;
+                int div = len / 2;
+                string s1 = s.Substring(0, div);
+                int last = len - div;
+                string s2 = s.Substring(div, last);
+				return CountManipulations(s1,s2);
+            }
+			else
+			{
+				return -1;
+			}
+		}
+		public static int CountManipulations(string s1, string s2)
+        {
+            // Convert strings to character arrays and sort them
+            char[] s1Array = s1.ToCharArray();
+            char[] s2Array = s2.ToCharArray();
+
+            Array.Sort(s1Array);
+            Array.Sort(s2Array);
+
+            int i = 0, j = 0, count = 0;
+
+            // Compare characters in sorted arrays
+            while (i < s1Array.Length && j < s2Array.Length)
+            {
+                if (s1Array[i] == s2Array[j])
+                {
+                    i++;
+                    j++;
+                }
+                else if (s1Array[i] < s2Array[j])
+                {
+                    i++;
+                    count++;
+                }
+                else
+                {
+                    j++;
+                    count++;
+                }
+            }
+
+            // Count the remaining characters in both arrays
+            count += (s1Array.Length - i) + (s2Array.Length - j);
+            return count / 2;
+        }
+
+        //A palindromic number is a number (such as 16461) that remains the same when its digits are reversed.
         //palindrom index test
 
         public static int PalindromeIndex(string s)

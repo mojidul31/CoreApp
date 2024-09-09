@@ -1,6 +1,15 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using CoreApp.com.test;
 Console.WriteLine("Hello, World!");
+//delete anagrams
+string s3 = "absdjkvuahdakejfnfauhdsaavasdlkj";
+string s4 = "djfladfhiawasdkjvalskufhafablsdkashlahdfa";
+Console.WriteLine(ProblemAndSolutionOne.makingAnagrams(s3, s4));
+
+//anagrams
+string s1 = "aaabbb";
+string s2 = "ab";
+Console.WriteLine(ProblemAndSolutionOne.GetMinimumChangeNoToMakeAnagram(s2));
 
 //Palindrom index
 var palindromIndex = ProblemAndSolutionOne.PalindromeIndex("aaa");
