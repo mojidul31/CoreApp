@@ -1,9 +1,39 @@
-﻿using System.Text;
+﻿using System.Linq;
+using System.Text;
 
 namespace CoreApp.com.test
 {
     public class ProblemAndSolutionOne
     {
+        internal static List<int> FindMatchingElements(int[,,,] array1, int[,,,] array2)
+        {
+            if (array1.Length < 1 && array2.Length < 1)
+                return new List<int>();
+            var list = new List<int>();
+            //SortedSet maintains ascending order and does not store duplicate elements.
+            //var l1 = new SortedSet<int>();
+            //var l2 = new SortedSet<int>();
+            var l1 = new HashSet<int>();
+            var l2 = new HashSet<int>();
+            foreach (var element in array1)
+            {
+                l1.Add(element);
+            }
+
+            foreach (var element in array2)
+            {
+                l2.Add(element);
+            }
+
+            foreach(var i in l1)
+            {
+                if (l2.Contains(i))
+                {
+                    list.Add(i);
+                }
+            }
+            return list;
+        }
         internal static int AppendWithDollar(string s)
         {
             char[] chars1 = s.ToCharArray();
