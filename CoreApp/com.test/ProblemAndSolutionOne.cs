@@ -1,10 +1,34 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Xml.Linq;
 
 namespace CoreApp.com.test
 {
     public class ProblemAndSolutionOne
     {
+        internal static int commonChild(string s1, string s2)
+        {                  
+            int[] memArr = new int[s2.Length + 1];
+            for (int i = 1; i<=s1.Length; i++)
+            {
+                int prevNo = 0;
+                for (int j = 1; j <= s2.Length; j++)
+                {
+                    int temp = memArr[j];
+                    if (s1[i-1] == s2[j-1])
+                    {
+                        memArr[j] = prevNo + 1;
+                    }
+                    else
+                    {
+                        memArr[j] = Math.Max(memArr[j], memArr[j-1]);
+                    }
+                    prevNo = temp;
+                }
+            }
+            return memArr[s2.Length];
+    }
         internal static List<int> FindMatchingElements(int[,,,] array1, int[,,,] array2)
         {
             if (array1.Length < 1 && array2.Length < 1)

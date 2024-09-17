@@ -1,6 +1,20 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using CoreApp.com.test;
+using System;
+
 Console.WriteLine("Hello, World!");
+//Common Child
+//string s11 = "ABCD";
+//string s12 = "ABDC";
+//string s11 = "HARRY";
+//string s12 = "SALLY";
+//string s11 = "AA";
+//string s12 = "BB";
+string s11 = "SHINCHAN";
+string s12 = "NOHARAAA";
+var countStr = ProblemAndSolutionOne.commonChild(s11, s12);
+Console.WriteLine("[{0}]", string.Join(',', countStr));
+
 //How to find unique integers from two arrays
 int[,,,] array1 = new int[2, 2, 2, 2] {
  {
