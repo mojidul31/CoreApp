@@ -7,6 +7,43 @@ namespace CoreApp.com.test
 {
     public class ProblemAndSolutionOne
     {
+        internal static object steadyGene(string gene)
+        {
+            var charArr = gene.ToCharArray();
+            Dictionary<char,int> list = new Dictionary<char,int>();
+            list.Add('A', 0); list.Add('C', 0); list.Add('G', 0); list.Add('T', 0);
+            
+            int n = gene.Length;
+            int i = 0, j = n - 1;
+            while (j >= i)
+            {
+                if (list[gene[j]] == n/4)
+                {
+                    j++;
+                    break;
+                }
+                list[gene[j]]++;
+                j--;
+            }
+
+            if (j < 0) return 0;
+
+            int minLength = j;
+
+            while (j < n)
+            {
+                list[gene[i]]++;
+                while ((j < n) && (list[gene[i]] > n/4)) 
+                {
+                    list[gene[j]]--;
+                    j++;
+                }
+                int len = j - i - 1;
+                minLength = Math.Min(minLength, len);
+                i++;
+            }
+            return minLength;
+        }
         internal static int commonChild(string s1, string s2)
         {                  
             int[] memArr = new int[s2.Length + 1];

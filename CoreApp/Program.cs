@@ -1,8 +1,17 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using CoreApp.com.test;
 using System;
+using System.Collections;
 
 Console.WriteLine("Hello, World!");
+//Bear and Steady Gene
+int n11 = 8;
+string gene = "GAAATAAA";
+var geneTest = ProblemAndSolutionOne.steadyGene(gene);
+Console.WriteLine("[{0}]", geneTest);
+
+
+
 //Common Child
 //string s11 = "ABCD";
 //string s12 = "ABDC";
