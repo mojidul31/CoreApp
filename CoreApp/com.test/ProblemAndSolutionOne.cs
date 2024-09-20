@@ -9,7 +9,6 @@ namespace CoreApp.com.test
     {
         internal static object steadyGene(string gene)
         {
-            var charArr = gene.ToCharArray();
             Dictionary<char,int> list = new Dictionary<char,int>();
             list.Add('A', 0); list.Add('C', 0); list.Add('G', 0); list.Add('T', 0);
             
