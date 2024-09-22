@@ -7,6 +7,101 @@ namespace CoreApp.com.test
 {
     public class ProblemAndSolutionOne
     {
+        internal static string morganAndString(string a, string b)
+        {
+            StringBuilder sb = new StringBuilder();
+            int i = 0, j = 0;//Index into each string
+            while (i < a.Length && j < b.Length)
+            {
+                switch (TieResult(a, b, i, j))
+                {
+                    case -1:
+                    case 0:
+                        var aa = a[i];
+                        while (i < a.Length && aa == a[i])
+                        {
+                            sb.Append(aa);
+                            i++;
+                        }
+                        break;
+                    case 1:
+                        var bb = b[j];
+                        while (j < b.Length && bb == b[j])
+                        {
+                            sb.Append(bb);
+                            j++;
+                        }
+                        break;
+                }
+            }
+
+            sb.Append(a.Substring(i));
+            sb.Append(b.Substring(j));
+            /*
+            while (i < a.Length && j < b.Length) {
+                if (a[i] < b[j])
+                {
+                    sb.Append(a[i]);
+                    i++;
+                }
+                else if (a[i] > b[j])
+                {
+
+                    sb.Append(b[j]);
+                    j++;
+                }
+                else
+                {
+                    if (i < j)
+                    {
+                        sb.Append(a[i]);
+                        i++;
+                    }
+                    else if (i > j)
+                    {
+                        sb.Append(b[j]);
+                        j++;
+                    }
+                    else
+                    {
+                        //sb.Append(a[i]);
+                        //i++;
+                        sb.Append(b[j]);
+                        j++;
+                    }
+                   }
+                }
+                //We reached the end of 1 string
+                //Add rest of string 1
+                while (i < a.Length)
+                {
+                    sb.Append(a[i]);
+                    i++;
+                }
+                //Add rest of string 2
+                while (j < b.Length)
+                {
+                    sb.Append(b[j]);
+                    j++;
+                }
+                */
+
+                return sb.ToString();
+        }
+
+        internal static int TieResult(string a, string b, int i, int j)
+        {
+            while (i < a.Length && j < b.Length)
+            {
+                if (a[i] < b[j])
+                    return -1;
+                if (a[i] > b[j])
+                    return 1;
+                i++;
+                j++;
+            }
+            return i< a.Length ? -1 : 1;
+        }
         internal static object steadyGene(string gene)
         {
             Dictionary<char,int> list = new Dictionary<char,int>();
