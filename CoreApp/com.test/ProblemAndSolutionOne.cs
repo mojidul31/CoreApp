@@ -731,7 +731,33 @@ namespace CoreApp.com.test
 			return sum;
         }
 
-        
+        internal static string reverseStr(string revStr)
+        {
+            if(revStr == null)
+                return string.Empty;
+            int len = revStr.Length;
+            /*
+            StringBuilder sb = new StringBuilder();
+            for(int i = len; i > 0; i--)
+            {
+                sb.Append(revStr[i-1]);
+            }
+            return sb.ToString();
+            */
+            //another way
+            int j = len-1;
+            var str = revStr.ToCharArray();
+            for(int i = 0; i <= len; i++)
+            {
+                if (i > j)
+                    break;
+                char c = str[i];
+                str[i] = str[j];
+                str[j] = c;
+                j--;
+            }
+            return new string(str);
+        }
     }
 
     

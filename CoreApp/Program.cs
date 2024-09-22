@@ -5,6 +5,10 @@ using System.Collections;
 
 Console.WriteLine("Hello, World!");
 
+string revStr = "uhsnamiH";
+var revStrTest = ProblemAndSolutionOne.reverseStr(revStr);
+Console.WriteLine("[{0}]", string.Join(',', revStrTest));
+
 //int array sorted by ascenting order
 int[] intArr = { 3, 4, 2, 1, 6, 5, 9 };
 var ascOrderArr = ProblemAndSolutionOne.ascOrderArr(intArr);
