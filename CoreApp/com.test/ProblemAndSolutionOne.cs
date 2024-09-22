@@ -7,6 +7,23 @@ namespace CoreApp.com.test
 {
     public class ProblemAndSolutionOne
     {
+        internal static int[] ascOrderArr(int[] arr)
+        {
+           int tmpMax=0, n = arr.Length;
+           for(int i = 0; i < n; i++)
+            {
+                for(int j = i+1; j < n; j++)
+                {
+                    if (arr[i] > arr[j])//if (arr[i] < arr[j]) //for descending order
+                    {
+                        tmpMax = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = tmpMax;
+                    }
+                }
+            }
+           return arr;
+        }
         internal static string morganAndString(string a, string b)
         {
             StringBuilder sb = new StringBuilder();
