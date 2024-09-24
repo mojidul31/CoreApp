@@ -7,6 +7,64 @@ namespace CoreApp.com.test
 {
     public class ProblemAndSolutionOne
     {
+        internal static void bfs_traversal(Node node)
+        {
+            Queue<Node> queue = new Queue<Node>();
+            queue.Enqueue(node);
+            while(queue.Count > 0)
+            {
+                node = queue.Dequeue();
+                Console.WriteLine(node.data+"");
+
+                if(node.left != null)
+                {
+                    queue.Enqueue(node.left);
+                }
+
+                if (node.right != null)
+                {
+                    queue.Enqueue(node.right);
+                }
+            }
+        }
+
+        internal static void bfs_traversal_second(Node node)
+        {
+            if (node == null)
+                return;
+            Console.WriteLine(node.data + "");
+            bfs_traversal_second(node.left);
+            bfs_traversal_second(node.right);
+        }
+        public static Node sample_tree(){
+            Node root =
+                new Node("A", new Node("B", new Node("C"), new Node("D")),
+                new Node("E", new Node("F"), new Node("G", new Node("H"), null)));
+            return root;
+        }
+        internal static int binarySearch(int[] a, int startIndex, int lastIndex, int val)
+        {
+            int mid = 0;
+            if(lastIndex >= startIndex)
+            {
+                mid = (lastIndex + startIndex) / 2;
+                if (a[mid] == val)
+                {
+                    return mid + 1;  /* if the item to be searched is present at middle */
+                }
+                /* if the item to be searched is smaller than middle, then it can only be in left subarray */
+                else if (a[mid] < val)
+                {
+                    return binarySearch(a, mid + 1, lastIndex, val);
+                }
+                /* if the item to be searched is greater than middle, then it can only be in right subarray */
+                else
+                {
+                    return binarySearch(a, startIndex, mid - 1, val);
+                }
+            }
+            return -1;
+        }
         internal static int[] ascOrderArr(int[] arr)
         {
            int tmpMax=0, n = arr.Length;
@@ -758,6 +816,8 @@ namespace CoreApp.com.test
             }
             return new string(str);
         }
+
+        
     }
 
     

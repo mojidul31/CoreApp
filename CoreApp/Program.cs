@@ -4,6 +4,18 @@ using System;
 using System.Collections;
 
 Console.WriteLine("Hello, World!");
+//Breadth-First Search
+Node node = ProblemAndSolutionOne.sample_tree();
+//ProblemAndSolutionOne.bfs_traversal(node);
+ProblemAndSolutionOne.bfs_traversal_second(node);
+//Console.WriteLine("Binary Search Result = {0}", bfsSearchTest);
+
+//Binary Search
+int[] aarr = { 8, 10, 22, 27, 37, 44, 49, 55, 69 }; // given array  
+int val = 37; // value to be searched  
+int n = aarr.Length; // size of array 
+var binarySearchTest = ProblemAndSolutionOne.binarySearch(aarr, 0, n, val);
+Console.WriteLine("Binary Search Result = {0}", binarySearchTest);
 
 string revStr = "uhsnamiH";
 var revStrTest = ProblemAndSolutionOne.reverseStr(revStr);
@@ -218,10 +230,10 @@ Console.WriteLine("String reverse order= {0}", ProblemAndSolutionOne.getReverseO
 // Find the Height of Stack X to the Power N.
 Console.WriteLine("Power result = {0}", ProblemAndSolutionOne.getBaseToThePower(10,5));
 //Reverse Words in a String
-//string str2 = "the sky is blue";
+string str2 = "the sky is blue";
 //string str2 = "  hello world  ";
 //string str2 = "a good   example";
-string str2 = "EPY2giL";
+//string str2 = "EPY2giL";
 Console.WriteLine("Reverse String " + ProblemAndSolutionOne.ReverseWords(str2));
 
 int[] numsN = { 2, 5, 7, 11, 15 };
