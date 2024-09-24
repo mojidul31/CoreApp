@@ -7,6 +7,41 @@ namespace CoreApp.com.test
 {
     public class ProblemAndSolutionOne
     {
+        internal static int knapsackTest(List<Item> items, int capacity)
+        {
+            int[,] matrix = new int[items.Count+1, capacity+1];
+            for (int itemIndex = 0; itemIndex <= items.Count; itemIndex++)
+            {
+                var currentItem = itemIndex == 0 ? null : items[itemIndex - 1];
+                for (int currentCapacity = 0; currentCapacity <= capacity; currentCapacity++)
+                {
+                    if (currentItem == null || currentCapacity == 0)
+                    {
+                        matrix[itemIndex, currentCapacity] = 0;
+                    }
+                    else if (currentItem.Weight <= currentCapacity)
+                    {
+                        matrix[itemIndex, currentCapacity] = Math.Max(
+                            currentItem.Value + matrix[itemIndex - 1, currentCapacity - currentItem.Weight],
+                            matrix[itemIndex - 1, currentCapacity]);
+                    }
+                    else
+                    {
+                        matrix[itemIndex, currentCapacity] =
+                            matrix[itemIndex - 1, currentCapacity];
+                    }                    
+                }
+            }
+            return matrix[items.Count, capacity];
+        }
+        public static List<Item> sample_item()
+        {
+            List<Item> items = new List<Item>();
+            items.Add(new Item { Value = 60, Weight = 10 });
+            items.Add(new Item { Value = 100, Weight = 20 });
+            items.Add(new Item { Value = 120, Weight = 30 });
+            return items;
+        }
         internal static void bfs_traversal(Node node)
         {
             Queue<Node> queue = new Queue<Node>();

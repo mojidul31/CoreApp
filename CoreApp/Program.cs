@@ -4,6 +4,12 @@ using System;
 using System.Collections;
 
 Console.WriteLine("Hello, World!");
+//KnapSack problem
+var items = ProblemAndSolutionOne.sample_item();
+int capacity = 50;
+var knapsackTest = ProblemAndSolutionOne.knapsackTest(items, capacity);
+Console.WriteLine("knapsack Result = {0}", knapsackTest);
+
 //Breadth-First Search
 Node node = ProblemAndSolutionOne.sample_tree();
 //ProblemAndSolutionOne.bfs_traversal(node);
