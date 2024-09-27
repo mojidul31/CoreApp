@@ -4,16 +4,33 @@ using System;
 using System.Collections;
 
 Console.WriteLine("Hello, World!");
+//MergeTwoLists
+ListNode linkL1 = new ListNode(2);
+linkL1.next = new ListNode(4);
+linkL1.next.next = new ListNode(3);
+
+ListNode linkL2 = new ListNode(5);
+linkL2.next = new ListNode(6);
+linkL2.next.next = new ListNode(4);
+
+var mergeTwoLists = ProblemAndSolutionOne.MergeTwoLists(linkL1, linkL2);
+//Console.WriteLine("[{0}]", string.Join(',', linkListTest));
+while (mergeTwoLists != null)
+{
+    Console.Write("{0}\t", mergeTwoLists.val);
+    mergeTwoLists = mergeTwoLists.next;
+}
+Console.WriteLine("");
 //Add Two numbers
 //[2,4,9]
 //[5,6,4,9]
 //result [7,0,4,0,1]
 // 1 -> 2 -> 3 -> 4 -> 5
 //ListNode l1 = new ListNode(2);
-//l1.Next = new ListNode(4);
-//l1.Next.Next = new ListNode(3);
-//head.Next.Next.Next = new ListNode(4);
-//head.Next.Next.Next.Next = new ListNode(5);
+//l1.next = new ListNode(4);
+//l1.next.next = new ListNode(3);
+//head.next.next.next = new ListNode(4);
+//head.next.next.next.next = new ListNode(5);
 
 LinkList l1 = new LinkList();
 LinkList l2 = new LinkList();
@@ -38,42 +55,43 @@ while (temp1 != null || temp2 != null)
     num1 = num2 = 0;
     if(temp1 != null)
     {
-        num1 = temp1.Val;
+        num1 = temp1.val;
     }
     if(temp2 != null)
     {
-        num2 = temp2.Val;
+        num2 = temp2.val;
     }
     int nSum = num1 + num2 + nCarry;
     nCarry = nSum / 10;
     int finalSum = nSum % 10;
     resultList.AddBegin(finalSum);
-    temp1 = temp1.Next;
-    temp2 = temp2.Next;
+    temp1 = temp1.next;
+    temp2 = temp2.next;
 }
 
 temp1 = resultList.Head;
 while(temp1 != null)
 {
-    //Console.WriteLine("{0}\t",temp1.Val);
-    temp1 = temp1.Next;
+    //Console.WriteLine("{0}\t",temp1.val);
+    temp1 = temp1.next;
 }
 
 ListNode ll1 = new ListNode(2);
-ll1.Next = new ListNode(4);
-ll1.Next.Next = new ListNode(3);
+ll1.next = new ListNode(4);
+ll1.next.next = new ListNode(3);
 
 ListNode ll2 = new ListNode(5);
-ll2.Next = new ListNode(6);
-ll2.Next.Next = new ListNode(4);
+ll2.next = new ListNode(6);
+ll2.next.next = new ListNode(4);
 
 var linkListTest = ProblemAndSolutionOne.AddTwoNumbers(ll1, ll2);
 //Console.WriteLine("[{0}]", string.Join(',', linkListTest));
 while (linkListTest != null)
 {
-    Console.Write("{0}\t", linkListTest.Val);
-    linkListTest = linkListTest.Next;
+    Console.Write("{0}\t", linkListTest.val);
+    linkListTest = linkListTest.next;
 }
+
 
 Console.WriteLine("");
 //var linkListTest = ProblemAndSolutionOne.AddTwoNumbers(l1, l2);

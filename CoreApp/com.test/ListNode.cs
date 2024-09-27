@@ -2,12 +2,12 @@
 {
     public class ListNode
     {
-        public int Val;
-        public ListNode Next;
+        public int val;
+        public ListNode next;
         public ListNode(int val = 0, ListNode next = null)
         {
-            this.Val = val;
-            this.Next = next;
+            this.val = val;
+            this.next = next;
         }
     }
 
@@ -25,12 +25,12 @@
         public void AddLast(int newData)
         {
             ListNode node = new ListNode();
-            node.Val = newData;
-            node.Next = null;
+            node.val = newData;
+            node.next = null;
 
             if(Head != null)
             {
-                Head.Next = node;
+                Head.next = node;
             }
             else
             {
@@ -43,12 +43,12 @@
         public void AddBegin(int newData)
         {
             ListNode node = new ListNode();
-            node.Val = newData;
-            node.Next = null;
+            node.val = newData;
+            node.next = null;
 
             if (Head != null)
             {
-                Head.Next = Current;
+                Head.next = Current;
 
             }
             else
@@ -64,8 +64,8 @@
             ListNode temp = Head;
             while(temp != null)
             {
-                Console.WriteLine(temp.Val);
-                temp = temp.Next;
+                Console.WriteLine(temp.val);
+                temp = temp.next;
             }
 
         }
@@ -76,10 +76,10 @@
             ListNode temp1 = null;
             while(temp != Last)
             {
-                temp1 = Last.Next;
-                Last.Next = temp;
-                Head = Head.Next;
-                temp.Next = temp1;
+                temp1 = Last.next;
+                Last.next = temp;
+                Head = Head.next;
+                temp.next = temp1;
                 temp = Head;
             }
         }

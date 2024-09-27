@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml.Linq;
@@ -902,15 +903,15 @@ namespace CoreApp.com.test
                 // If num1 linked list is not empty, add it to sum
                 if (l1 != null)
                 {
-                    sum += l1.Val;
-                    l1 = l1.Next;
+                    sum += l1.val;
+                    l1 = l1.next;
                 }
 
                 // If num2 linked list is not empty, add it to sum
                 if (l2 != null)
                 {
-                    sum += l2.Val;
-                    l2 = l2.Next;
+                    sum += l2.val;
+                    l2 = l2.next;
                 }
 
                 // Create a new node with sum % 10 as its value
@@ -931,8 +932,8 @@ namespace CoreApp.com.test
 
                     // Append new node to resultant linked list
                     // and move to the next node
-                    curr.Next = newNode;
-                    curr = curr.Next;
+                    curr.next = newNode;
+                    curr = curr.next;
                 }
             }
 
@@ -955,10 +956,10 @@ namespace CoreApp.com.test
             {
 
                 // Store next
-                next = curr.Next;
+                next = curr.next;
 
                 // Reverse current node's next pointer
-                curr.Next = prev;
+                curr.next = prev;
 
                 // Move pointers one position ahead
                 prev = curr;
@@ -968,8 +969,53 @@ namespace CoreApp.com.test
             // Return the head of reversed linked list
             return prev;
         }
+
+        public static ListNode MergeTwoLists(ListNode l1, ListNode l2)
+        {
+            //null checking
+            if (l1 == null && l2 == null) return null;  
+            if (l1 == null) return l2;
+            if (l2 == null) return l1;
+
+            // create a new list to store the merged list
+            ListNode mergedList = new ListNode();
+            /*
+            ListNode cur = mergedList;
+            while (l1 != null && l2 != null)
+            {
+                if (l1.val <= l2.val)
+                {
+                    cur.next = l1;
+                    l1 = l1.next;
+                }
+                else
+                {
+                    cur.next = l2;
+                    l2 = l2.next;
+                }
+                cur = cur.next;
+            }
+            cur.next = l1 == null ? l2 : l1;
+            return mergedList.next;
+            */
+
+            
+            if (l1.val > l2.val)
+            { //comparing and merging
+                mergedList = l2;
+                l2 = l2.next;
+            }
+            else
+            {
+                mergedList = l1;
+                l1 = l1.next;
+            }
+
+            mergedList.next = MergeTwoLists(l1, l2);
+            return mergedList;            
+        }
+
+
+
     }
-
-    
-
 }
