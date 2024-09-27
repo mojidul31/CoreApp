@@ -1105,7 +1105,82 @@ namespace CoreApp.com.test
             return romanResult;
         }
 
+        internal static string LongestCommonPrefix(string[] strs)
+        {
+            // If the array is empty, return "-1"
+            if (strs == null || strs.Length == 0)
+                return string.Empty;
 
+            // Sort the array of strings
+            Array.Sort(strs);
 
+            // Get the first and last strings after sorting
+            string first = strs[0];
+            string last = strs[strs.Length - 1];
+            int minLength = Math.Min(first.Length, last.Length);
+
+            int i = 0;
+            // Find the common prefix between the first and last
+            // strings
+            while (i < minLength && first[i] == last[i])
+            {
+                i++;
+            }
+
+            // Check if there's no common prefix
+            if (i == 0)
+                return string.Empty;
+
+            // Return the common prefix
+            return first.Substring(0, i);
+            /*
+            string res = String.Empty;
+            for(int i=1;i<strs.Length; i++)
+            {                
+                if(i >= 2)
+                {
+                    if (res.Length < 1) return string.Empty;
+                    if ((i + 1) <= strs.Length)
+                    {
+                        var temp1 = strs[i].ToCharArray();
+                        for (int j = 0; j < temp1.Length; j++)
+                        {
+                            if (temp1[j] != res[j])
+                            {
+                                int len = res.Length - j;
+                                res = res.Substring(0, len);
+                                break;
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+                else
+                {
+                    var temp1 = strs[i-1].ToCharArray();
+                    var temp2 = strs[i].ToCharArray();
+                    for (int j = 0; j < temp1.Length; j++)
+                    {
+                        if (temp1.Length > j && temp2.Length>j && temp1[j] == temp2[j])
+                        {
+                            res = res+temp1[j];
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                }
+            }
+            return res;
+            */
+        }
     }
 }

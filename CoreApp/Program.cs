@@ -4,7 +4,13 @@ using System;
 using System.Collections;
 
 Console.WriteLine("Hello, World!");
-//
+//LongestCommonPrefix
+string[] strs = { "flower", "flow", "flight" };
+//string[] strs = {"dog", "racecar", "car"};
+var commonPrefix = ProblemAndSolutionOne.LongestCommonPrefix(strs);
+Console.WriteLine("{0}", commonPrefix);
+
+//IntToRoman
 int nos = 1994;
 var noFromRoman = ProblemAndSolutionOne.IntToRoman(nos);
 Console.WriteLine("{0}", noFromRoman);
