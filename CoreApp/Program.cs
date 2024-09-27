@@ -4,6 +4,87 @@ using System;
 using System.Collections;
 
 Console.WriteLine("Hello, World!");
+//Add Two numbers
+// 1 -> 2 -> 3 -> 4 -> 5
+//ListNode l1 = new ListNode(2);
+//l1.Next = new ListNode(4);
+//l1.Next.Next = new ListNode(3);
+//head.Next.Next.Next = new ListNode(4);
+//head.Next.Next.Next.Next = new ListNode(5);
+
+LinkList l1 = new LinkList();
+LinkList l2 = new LinkList();
+l1.AddLast(2);
+l1.AddLast(4);
+l1.AddLast(3);
+
+l2.AddLast(5);
+l2.AddLast(6);
+l2.AddLast(4);
+
+l1.ReverseList();
+l2.ReverseList();
+
+LinkList resultList = new LinkList();
+ListNode temp1 = l1.Head;
+ListNode temp2 = l2.Head;
+
+int num1 = 0, num2 = 0, nCarry=0;
+while (temp1 != null || temp2 != null)
+{
+    num1 = num2 = 0;
+    if(temp1 != null)
+    {
+        num1 = temp1.Val;
+    }
+    if(temp2 != null)
+    {
+        num2 = temp2.Val;
+    }
+    int nSum = num1 + num2 + nCarry;
+    nCarry = nSum / 10;
+    int finalSum = nSum % 10;
+    resultList.AddBegin(finalSum);
+    temp1 = temp1.Next;
+    temp2 = temp2.Next;
+}
+
+temp1 = resultList.Head;
+while(temp1 != null)
+{
+    //Console.WriteLine("{0}\t",temp1.Val);
+    temp1 = temp1.Next;
+}
+
+ListNode ll1 = new ListNode(2);
+ll1.Next = new ListNode(4);
+ll1.Next.Next = new ListNode(3);
+
+ListNode ll2 = new ListNode(5);
+ll2.Next = new ListNode(6);
+ll2.Next.Next = new ListNode(4);
+
+var linkListTest = ProblemAndSolutionOne.AddTwoNumbers(ll1, ll2);
+//Console.WriteLine("[{0}]", string.Join(',', linkListTest));
+while (linkListTest != null)
+{
+    Console.Write("{0}\t", linkListTest.Val);
+    linkListTest = linkListTest.Next;
+}
+
+Console.WriteLine("");
+//var linkListTest = ProblemAndSolutionOne.AddTwoNumbers(l1, l2);
+//Console.WriteLine("[{0}]", string.Join(',', linkListTest));
+//Two Sum
+//int[] intArr1 = { 2, 7, 6, 12 };
+//int targetTotal = 9;
+//int[] intArr1 = { 3,2,4 };
+//int targetTotal = 6;
+int[] intArr1 = { 3,3 };
+int targetTotal = 6;
+var twoSumArr = ProblemAndSolutionOne.TwoSum(intArr1, targetTotal);
+Console.WriteLine("[{0}]", string.Join(',', twoSumArr));
+
 //KnapSack problem
 var items = ProblemAndSolutionOne.sample_item();
 int capacity = 50;

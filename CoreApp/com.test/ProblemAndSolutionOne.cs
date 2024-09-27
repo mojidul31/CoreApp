@@ -852,7 +852,108 @@ namespace CoreApp.com.test
             return new string(str);
         }
 
-        
+        internal static int[] TwoSum(int[] nums, int target)
+        {
+            int[] result = new int[2];
+            for(int i=0; i< nums.Length; i++)
+            {
+                for(int j=i+1; j< nums.Length; j++)
+                {
+                    if (nums[i] + nums[j] == target)
+                    {
+                        result[0] = i;
+                        result[1] = j;
+                        break;
+                    }
+                }
+            }
+            return result;
+        }
+
+        internal static ListNode AddTwoNumbers(ListNode l1, ListNode l2)
+        {
+            ListNode res = null;
+            ListNode curr = null;
+            int carry = 0;
+
+            l1 = ReverseList(l1);
+            l2 = ReverseList(l2);
+
+            // Iterate till either num1 is not empty or num2 is
+            // not empty or carry is greater than 0
+            while (l1 != null || l2 != null || carry != 0)
+            {
+                int sum = carry;
+
+                // If num1 linked list is not empty, add it to sum
+                if (l1 != null)
+                {
+                    sum += l1.Val;
+                    l1 = l1.Next;
+                }
+
+                // If num2 linked list is not empty, add it to sum
+                if (l2 != null)
+                {
+                    sum += l2.Val;
+                    l2 = l2.Next;
+                }
+
+                // Create a new node with sum % 10 as its value
+                ListNode newNode = new ListNode(sum % 10);
+
+                // Store the carry for the next nodes
+                carry = sum / 10;
+
+                // If this is the first node, then make this node
+                // as the head of the resultant linked list
+                if (res == null)
+                {
+                    res = newNode;
+                    curr = newNode;
+                }
+                else
+                {
+
+                    // Append new node to resultant linked list
+                    // and move to the next node
+                    curr.Next = newNode;
+                    curr = curr.Next;
+                }
+            }
+
+            // Reverse the resultant linked list to get the
+            // required linked list
+            return res;
+            //return ReverseList(res);
+        }
+
+        private static ListNode ReverseList(ListNode head)
+        {
+
+            // Initialize three pointers: curr, prev and next
+            ListNode curr = head;
+            ListNode prev = null;
+            ListNode next;
+
+            // Traverse all the nodes of Linked List
+            while (curr != null)
+            {
+
+                // Store next
+                next = curr.Next;
+
+                // Reverse current node's next pointer
+                curr.Next = prev;
+
+                // Move pointers one position ahead
+                prev = curr;
+                curr = next;
+            }
+
+            // Return the head of reversed linked list
+            return prev;
+        }
     }
 
     
