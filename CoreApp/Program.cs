@@ -4,6 +4,13 @@ using System;
 using System.Collections;
 
 Console.WriteLine("Hello, World!");
+//RomanToInt
+string s = "MCMXCIV";
+//string s = "LVIII";
+var romanNo = ProblemAndSolutionOne.RomanToInt(s);
+Console.WriteLine("{0}", romanNo);
+
+
 //MergeTwoLists
 ListNode linkL1 = new ListNode(2);
 linkL1.next = new ListNode(4);

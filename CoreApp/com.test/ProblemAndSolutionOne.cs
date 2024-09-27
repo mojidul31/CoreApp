@@ -1015,6 +1015,38 @@ namespace CoreApp.com.test
             return mergedList;            
         }
 
+        public static int RomanToInt(string s)
+        {
+            int sum = 0;
+            Dictionary<char, int> romanNosDic = new()
+            {
+                { 'I', 1 },
+                { 'V', 5 },
+                { 'X', 10 },
+                { 'L', 50 },
+                { 'C', 100 },
+                { 'D', 500 },
+                { 'M', 1000 }
+            };
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                char currentRomanChar = s[i];
+                romanNosDic.TryGetValue(currentRomanChar, out int num);
+                //right roman char >left roman char => true else false
+                //true = sum-left or false = sum + left
+                if (i + 1 < s.Length && romanNosDic[s[i + 1]] > romanNosDic[currentRomanChar])
+                {
+                    sum -= num;
+                }
+                else
+                {
+                    sum += num;
+                }
+            }
+            return sum;
+        }
+
 
 
     }
