@@ -5,6 +5,9 @@ using System.Collections;
 
 Console.WriteLine("Hello, World!");
 //Add Two numbers
+//[2,4,9]
+//[5,6,4,9]
+//result [7,0,4,0,1]
 // 1 -> 2 -> 3 -> 4 -> 5
 //ListNode l1 = new ListNode(2);
 //l1.Next = new ListNode(4);
@@ -263,7 +266,9 @@ string cs1 = "hi";
 string cs2 = "world";
 Console.WriteLine("Common String =>" + ProblemAndSolutionOne.CommonSubstring(cs1, cs2));
 
-
+//check int palindrome
+var d = ProblemAndSolutionOne.IsIntPalindrome(16361);
+Console.WriteLine("m =>" + d);
 //check anagram and
 string strAnaPalin = "aaabbbb";
 Console.WriteLine("check palindrom =>" + ProblemAndSolutionOne.checkPalindrome(strAnaPalin));

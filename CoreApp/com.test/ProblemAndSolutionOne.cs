@@ -553,6 +553,20 @@ namespace CoreApp.com.test
             }
             return start >= end;
         }
+
+        //int palindrome
+        public static bool IsIntPalindrome(int x)
+        {            
+            int[] nums = x.ToString().ToCharArray().Select(Convert.ToInt32).ToArray();
+            int len = nums.Length;
+            int[] res = new int[len];             
+            foreach (int i in nums)
+            {
+                res[len - 1] = i;
+                len--;
+            }
+            return nums.SequenceEqual(res);
+        }
         //How to reverse a string
 
         public static string ReverseString(string s)
