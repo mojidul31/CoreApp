@@ -4,6 +4,11 @@ using System;
 using System.Collections;
 
 Console.WriteLine("Hello, World!");
+//
+int nos = 1994;
+var noFromRoman = ProblemAndSolutionOne.IntToRoman(nos);
+Console.WriteLine("{0}", noFromRoman);
+
 //RomanToInt
 string s = "MCMXCIV";
 //string s = "LVIII";
