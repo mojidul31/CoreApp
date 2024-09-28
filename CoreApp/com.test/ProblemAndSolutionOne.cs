@@ -1252,5 +1252,21 @@ namespace CoreApp.com.test
             }
             return -1;
         }
+
+        internal static int SearchInsert(int[] nums, int target)
+        {
+            foreach(int i in nums)
+            {
+                if (i == target)
+                {
+                    return Array.IndexOf(nums, target);
+                }
+                if (i > target)
+                {
+                    return Array.IndexOf(nums, i);
+                }
+            }
+            return nums.Length;
+        }
     }
 }

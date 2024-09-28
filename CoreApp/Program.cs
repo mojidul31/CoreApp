@@ -4,6 +4,16 @@ using System;
 using System.Collections;
 
 Console.WriteLine("Hello, World!");
+//Search Insert Position
+
+//int[] nums11 = { 1, 3, 5, 6 };
+//int target11 = 5;
+int[] nums11 = { 1, 3, 5, 6 };
+//int target11 = 2;
+int target11 = 7;
+var insertPosition = ProblemAndSolutionOne.SearchInsert(nums11, target11);
+Console.WriteLine("{0}", insertPosition);
+
 //Find the Index of the First Occurrence in a String
 string haystack = "sadbutsad";
 string needle = "sad";
