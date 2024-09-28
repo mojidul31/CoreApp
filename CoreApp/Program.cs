@@ -4,6 +4,11 @@ using System;
 using System.Collections;
 
 Console.WriteLine("Hello, World!");
+//Valid Parenthesis
+string parenthesis = "()[]{}";
+var validParnthesis = ProblemAndSolutionOne.IsValid(parenthesis);
+Console.WriteLine("{0}", validParnthesis);
+
 //LongestCommonPrefix
 string[] strs = { "flower", "flow", "flight" };
 //string[] strs = {"dog", "racecar", "car"};
