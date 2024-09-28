@@ -4,6 +4,12 @@ using System;
 using System.Collections;
 
 Console.WriteLine("Hello, World!");
+//Find the Index of the First Occurrence in a String
+string haystack = "sadbutsad";
+string needle = "sad";
+var findIndex = ProblemAndSolutionOne.StrStr(haystack, needle);
+Console.WriteLine("{0}", findIndex);
+
 //RemoveElement
 int[] removeFromArr = { 3,2,2,3};
 int removeInt = 3;

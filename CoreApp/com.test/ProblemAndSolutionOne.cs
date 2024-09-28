@@ -1243,5 +1243,14 @@ namespace CoreApp.com.test
 
             return k;
         }
+
+        internal static int StrStr(string haystack, string needle)
+        {
+            if (haystack.Contains(needle))
+            {
+                return haystack.IndexOf(needle);
+            }
+            return -1;
+        }
     }
 }
