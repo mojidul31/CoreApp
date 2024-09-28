@@ -4,9 +4,17 @@ using System;
 using System.Collections;
 
 Console.WriteLine("Hello, World!");
-//Search Insert Position
+//LengthOfLastWord
+//string sss = "   fly me   to   the moon  ";
+//string sss = "Hello World";
+string sss = "luffy is still joyboy";
+var sssT = ProblemAndSolutionOne.LengthOfLastWord(sss);
+Console.WriteLine("{0}", sssT);
 
-//int[] nums11 = { 1, 3, 5, 6 };
+
+
+//Search Insert Position
+//int[] nums11 = { 1, 3, 5,6 };
 //int target11 = 5;
 int[] nums11 = { 1, 3, 5, 6 };
 //int target11 = 2;

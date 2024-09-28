@@ -1268,5 +1268,24 @@ namespace CoreApp.com.test
             }
             return nums.Length;
         }
+        internal static int LengthOfLastWord(string s)
+        {
+            s = s.Trim();
+            StringBuilder sb = new StringBuilder();
+            int len = s.Length;
+            while(len > 0)
+            {
+                if (s[len - 1] == ' ')
+                {
+                    break;
+                }
+                else
+                {
+                    sb.Append(s[len - 1]);
+                }
+                len--;
+            }
+            return sb.Length;
+        }
     }
 }
