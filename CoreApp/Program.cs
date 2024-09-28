@@ -4,6 +4,12 @@ using System;
 using System.Collections;
 
 Console.WriteLine("Hello, World!");
+//RemoveElement
+int[] removeFromArr = { 3,2,2,3};
+int removeInt = 3;
+var removeIntRes = ProblemAndSolutionOne.RemoveElement(removeFromArr, removeInt);
+Console.WriteLine("{0}", removeIntRes);
+
 //Valid Parenthesis
 string parenthesis = "()[]{}";
 var validParnthesis = ProblemAndSolutionOne.IsValid(parenthesis);

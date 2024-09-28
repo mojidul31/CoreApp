@@ -1220,5 +1220,28 @@ namespace CoreApp.com.test
             }
             return stack.Count == 0;
         }
+
+        internal static int RemoveElement(int[] nums, int val)
+        {
+            int k = 0;
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                int element = nums[i];
+                if (nums[i] != val){
+                    nums[k] = nums[i];
+                    k++;
+                }
+                //else
+                //{
+                //    int numIdx = Array.IndexOf(nums, val);
+                //    List<int> tmp = new List<int>(nums);
+                //    tmp.RemoveAt(numIdx);
+                //    nums = tmp.ToArray();
+                //}
+            }
+
+            return k;
+        }
     }
 }
