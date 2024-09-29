@@ -1287,5 +1287,69 @@ namespace CoreApp.com.test
             }
             return sb.Length;
         }
+
+        internal static int[] PlusOne(int[] digits)
+        {
+            int num;
+
+            for (int i = digits.Length - 1; i >= 0; i--)
+            {
+                num = digits[i] + 1;
+                if (num == 10)
+                {
+                    digits[i] = 0;
+                }
+                else
+                {
+                    digits[i] = num;
+                    return digits;
+                }
+            }
+
+            int[] resultDigits = new int[digits.Length + 1];
+
+            resultDigits[0] = 1;
+            Array.Copy(digits, 0, resultDigits, 1, digits.Length);
+
+            return resultDigits;
+            //string concatenatedString = string.Join("", digits);
+            //Int64 n = Int64.Parse(concatenatedString);
+            // Step 1: Loop through the array
+            /*
+            int n = 0;
+            foreach (int number in digits)
+            {
+                if(number != 0)
+                {
+                    n = n * 10 + number;
+                }
+                //0 thakle error hobe                
+            }
+            Console.WriteLine("kkk" + n);
+            n += 1;
+            if (n == 0) return new int[1] { 0 };
+            var dgts = new List<int>();
+            for (; n != 0; n /= 10)
+                dgts.Add(n % 10);
+            var arr = dgts.ToArray();
+            Array.Reverse(arr);
+            return arr;
+            */
+        }
+
+        //int[] outarry = Array.ConvertAll(num.ToString().ToArray(), x=>(int)x);
+        internal static int[] convertArrayFromDigit(int n)
+        {
+            if (n == 0) return new int[1] { 0 };
+
+            var digits = new List<int>();
+
+            for (; n != 0; n /= 10)
+                digits.Add(n % 10);
+
+            var arr = digits.ToArray();
+            Array.Reverse(arr);
+            return arr;
+        }
     }
 }
