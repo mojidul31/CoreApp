@@ -2,6 +2,7 @@
 using CoreApp.com.test;
 using System;
 using System.Collections;
+using System.Linq.Expressions;
 
 Console.WriteLine("Hello, World!");
 //Plus One
@@ -432,6 +433,13 @@ var nameUsing = ProblemAndSolutionOne.NewTuplePattern("","102","VII");
 Console.WriteLine("Tuple Use [{0}]", string.Join(", ", nameUsing));
 //Use of Predicate delegate
 ProblemAndSolutionOne.PredicateDelegate();
+//Use of expression
+Expression<Func<Student, bool>> isTeenAgerExpr = s => s.Age > 12 && s.Age < 20;
+//compile Expression using Compile method to invoke it as Delegate
+Func<Student, bool> isTeenAger = isTeenAgerExpr.Compile();
+//Invoke
+bool result = isTeenAger(new Student() { StudentID = 1, StudentName = "Steve", Age = 20 });
+Console.WriteLine("Is Teen Ager " + result);
 //Sum of array
 List<int> arr = new List<int>();
 arr.AddRange(new[] { 1, 2, 3, 6, 7, 3, 8 });
