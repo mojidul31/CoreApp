@@ -3,6 +3,7 @@ using CoreApp.com.test;
 using System;
 using System.Collections;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 class Program
 {
@@ -517,6 +518,27 @@ class Program
         //predicate test
         predicate_test predicated_del = delegateObj.myfun;
         Console.WriteLine(predicated_del("Hello"));
+
+        ThreadTest thObj = new ThreadTest();
+        Thread t1h = new Thread(new ThreadStart(thObj.myTask));
+        t1h.Start();
+
+        // Creating and initializing threads
+        Thread t1 = new Thread(thObj.work);
+        Thread t2 = new Thread(thObj.work);
+        Thread t3 = new Thread(thObj.work);
+
+        // Set the priority of threads
+        t2.Priority = ThreadPriority.Lowest;
+        t3.Priority = ThreadPriority.AboveNormal;
+        t1.Start();
+        t2.Start();
+        t3.Start();
+
+        // Display the priority of threads
+        Console.WriteLine("The priority of Thread 1 is: {0}", t1.Priority);
+        Console.WriteLine("The priority of Thread 2 is: {0}", t2.Priority);
+        Console.WriteLine("The priority of Thread 3 is: {0}", t3.Priority);
 
         Console.ReadLine();
 
