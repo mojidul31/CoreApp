@@ -12,6 +12,9 @@ class Program
     //multicasting delegate
     public delegate void rectDelegate(double height, double width);
 
+    // Declaring the delegate for predicate
+    public delegate bool predicate_test(string msg);
+
     static void Main(string[] args)
     {
 
@@ -481,6 +484,39 @@ class Program
         Console.WriteLine("Difference");
         delegate_with_multicasting_area.Invoke(12.2, 15.3);
 
+        //Func Delegate with One Parameter
+        Func<int, int> Delegate = delegateObj.DoubleValue;
+        Console.WriteLine(Delegate(10));
+
+        //Func Delegate with Anonymous Method
+        Func<int, int, int> sum1 = delegate (int x, int y)
+        {
+            return x + y;
+        };
+        Console.WriteLine(sum1(5, 10));
+
+        //Func Delegate with Lambda Expression
+        Func<int, int, int> sum2 = (x, y) => x + y;
+        Console.WriteLine(sum2(51, 10));
+
+        Action<int, int> action = delegateObj.SubtractNumbers;
+        action(13, 4);
+
+        // Anonymous method using Action delegate
+        Action<string> action2 = delegate (string str)
+        {
+            Console.WriteLine(str);
+        };
+        action2("Mojidul Islam");
+
+        // Lambda expression using Action delegate
+        string ds = "Mojidul Islam";
+        Action<string> action1 = str => Console.WriteLine(str);
+        action1(ds);
+
+        //predicate test
+        predicate_test predicated_del = delegateObj.myfun;
+        Console.WriteLine(predicated_del("Hello"));
 
         Console.ReadLine();
 

@@ -24,5 +24,29 @@
             Console.WriteLine("Perimeter is: {0} ", 2 * (width + height));
         }
 
+        public int DoubleValue(int num)
+        {
+            return num + num;
+        }
+
+        public void SubtractNumbers(int p, int q)
+        {
+            Console.WriteLine(p - q);
+        }
+
+        public bool myfun(string mystring)
+        {
+            if (mystring.Length < 7)
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+        }
+
+
     }
 }
