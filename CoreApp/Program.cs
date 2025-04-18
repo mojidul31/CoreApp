@@ -540,6 +540,55 @@ class Program
         Console.WriteLine("The priority of Thread 2 is: {0}", t2.Priority);
         Console.WriteLine("The priority of Thread 3 is: {0}", t3.Priority);
 
+        //Implementation of multithreading using Thread class.
+        // create a new thread
+        Thread t = new Thread(thObj.worker);
+        // start the thread
+        t.Start();
+        // do some other work in the main thread
+        for (int i = 1; i < 5; i++)
+        {
+            Console.WriteLine("Main thread doing some work");
+            Thread.Sleep(100);
+        }
+        // wait for the worker thread to complete
+        t.Join();
+        Console.WriteLine("Done");
+
+        Thread thr1 = new Thread(thObj.method1);
+        Thread thr2 = new Thread(thObj.method2);
+        thr1.Start();
+        thr2.Start();
+
+        // Running two tasks concurrently
+        Task task1 = Task.Run(() => thObj.PrintNumbers());
+        Task task2 = Task.Run(() => thObj.PrintNumbers());
+        // Wait for both tasks to complete
+        Task.WhenAll(task1, task2).Wait();
+
+        // Example using Threads
+        Thread thread1 = new Thread(() => thObj.task("Thread 1"));
+        Thread thread2 = new Thread(() => thObj.task("Thread 2"));
+        thread1.Start();
+        thread2.Start();
+        thread1.Join();
+        thread2.Join();
+        Console.WriteLine("moving to task");
+        // Example using Tasks with async/await
+        Task.Run(async () => await thObj.RunAsyncTasks()).Wait();
+        Console.WriteLine("All tasks completed!!!.");
+
+        // queue a work item to the thread pool
+        ThreadPool.QueueUserWorkItem(thObj.Worker1, "Hello, Mojidul!");
+        // do some other work in the main thread
+        for (int i = 1; i < 5; i++)
+        {
+            Console.WriteLine("Main thread doing some work");
+            Thread.Sleep(100);
+        }
+        Console.WriteLine("Done QueueUserWorkItem");
+
+
         Console.ReadLine();
 
     }
